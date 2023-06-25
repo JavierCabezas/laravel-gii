@@ -357,8 +357,8 @@ class ControllerBusiness extends GenerateBusiness
         $apiRoutes = [];
 
         $m2cPath = $this->m2cPath ? DIRECTORY_SEPARATOR . $this->m2cPath : '';
+        $controller = $this->controllerClassName;
 
-        $controller = str_replace('App\\Http\\Controllers\\', '', $this->controllerClassName);
         foreach ($this->actions as $name => $action) {
             $apiRoutes[] = "Route::any('" . str_replace(DIRECTORY_SEPARATOR, '/', $m2cPath) . "/{$name}', '{$controller}@{$action}');";
         }
@@ -373,6 +373,7 @@ class ControllerBusiness extends GenerateBusiness
 
         $m2Path = $this->m2Path ? DIRECTORY_SEPARATOR . $this->m2Path : '';
         $m2     = $this->m2 ? $this->m2 . '\\' : '';
+        $m2  = 'App\\Http\\Controllers\\';
 
         $routes   = [];
         $routes[] = "Route::get('" . str_replace(DIRECTORY_SEPARATOR, '/', $m2Path) . "/layout', '{$m2}RenderController@index');";

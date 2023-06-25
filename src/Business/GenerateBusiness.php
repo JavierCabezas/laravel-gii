@@ -201,6 +201,9 @@ class GenerateBusiness
             } else {
                 try {
                     $p = substr($f['virtual_path'], 0, strrpos($f['virtual_path'], '/'));
+                    $p = str_replace('/App/', '/app/', $p);
+                    $f['virtual_path'] = str_replace('/App/', '/app/', $f['virtual_path']);
+
                     if (!is_dir($p)) {
                         mkdir($p, 0755, true);
                     }
