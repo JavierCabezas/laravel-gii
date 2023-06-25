@@ -200,7 +200,7 @@ class GenerateBusiness
                 }
             } else {
                 try {
-                    $p = substr($f['virtual_path'], 0, strrpos($f['virtual_path'], '/'));
+                    $p = ucfirst(substr($f['virtual_path'], 0, strrpos($f['virtual_path'], '/')));
                     if (!is_dir($p)) {
                         mkdir($p, 0755, true);
                     }

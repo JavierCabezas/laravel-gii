@@ -13,7 +13,7 @@ class {{base_model_class}}Model extends {{base_model_class}}
 {
 
     /**
-     * 分页列表+支持检索
+     * Paging list + support retrieval
      *
      * @param $params
      * @param int $perPage
@@ -28,7 +28,7 @@ class {{base_model_class}}Model extends {{base_model_class}}
 
 
     /**
-     * 全部列表+支持检索
+     * Full list + support search
      *
      * @param $params
      * @return mixed
@@ -41,7 +41,7 @@ class {{base_model_class}}Model extends {{base_model_class}}
     }
 
     /**
-     * 获取详情+支持数组格式
+     * Get details + support array format
      *
      * @param $id
      * @param bool $isArr
@@ -58,7 +58,7 @@ class {{base_model_class}}Model extends {{base_model_class}}
     }
 
     /**
-     * 根据主键删除记录
+     * Delete records based on primary key
      *
      * @param $id
      * @return mixed
@@ -70,7 +70,8 @@ class {{base_model_class}}Model extends {{base_model_class}}
 
 
     /**
-     * 批量删除
+     * Batch Delete
+     *
      * @param array $ids
      * @return int
      */
@@ -80,7 +81,7 @@ class {{base_model_class}}Model extends {{base_model_class}}
     }
 
     /**
-     * 新建+编辑
+     * Create+Edit
      *
      * @param $params
      * @return array
@@ -91,11 +92,11 @@ class {{base_model_class}}Model extends {{base_model_class}}
 
         $keyName = (new self())->getKeyName();
 
-        // 历史数据
+        // Historical data
         if (isset($params[$keyName]) && $obj = self::find($params[$keyName])) {
             $params = array_merge($obj->toArray(), $params);
         } else {
-            // 创建新数据
+            // Create new entry
             $obj = new self();
         }
 
@@ -109,7 +110,7 @@ class {{base_model_class}}Model extends {{base_model_class}}
     }
 
     /**
-     * 过滤null字段 以及 非attr字段
+     * Filter null fields and non-attr fields
      *
      * @param $params
      * @return array
@@ -125,7 +126,7 @@ class {{base_model_class}}Model extends {{base_model_class}}
         $cond = [];
 
         if (is_array($params) && $params) {
-            // 主键特殊处理
+            // Primary Key Special Handling
             if (isset($params[$keyName]) && $params[$keyName]) {
                 $cond[$keyName] = $params[$keyName];
             }
