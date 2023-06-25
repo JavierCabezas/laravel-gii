@@ -1,3 +1,5 @@
+<?php use Illuminate\Support\Facades\URL ?>
+
 <html>
 <head>
     <title>Laravel gii</title>
@@ -31,8 +33,8 @@
         <i-layout>
             <i-sider hide-trigger :style="{background: '#fff'}">
                 <i-menu  theme="light" width="auto"  :active-name="getActiveName">
-                    <i-menu-item name="model" to="{{config('app.url')}}/gii/model">create Model</i-menu-item>
-                    <i-menu-item name="crud" to="{{config('app.url')}}/gii/crud">create CURD</i-menu-item>
+                    <i-menu-item name="model" to="<?php URL::to('/'); ?>/gii/model">create Model</i-menu-item>
+                    <i-menu-item name="crud" to="<?php URL::to('/'); ?>/gii/crud">create CURD</i-menu-item>
                 </i-menu>
             </i-sider>
             <i-layout :style="{padding: '0 24px 24px'}">
