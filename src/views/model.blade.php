@@ -29,7 +29,7 @@
                              placeholder="ex: App\Models\User\Mongo\Userinfo"></i-input>
                 </i-form-item>
                 <i-form-item label="Parent class name">
-                    <i-input name="parent_class_name" value="{{request()->parent_class_name}}" :autocomplete="true"
+                    <i-input name="parent_class_name" value="Illuminate\Database\Eloquent\Model" :autocomplete="true"
                              placeholder="ex: Illuminate\Database\Eloquent\Model"></i-input>
                 </i-form-item>
                 <i-form-item>

@@ -373,7 +373,7 @@ class ControllerBusiness extends GenerateBusiness
 
         $m2Path = $this->m2Path ? DIRECTORY_SEPARATOR . $this->m2Path : '';
         $m2     = $this->m2 ? $this->m2 . '\\' : '';
-        $m2  = 'App\\Http\\Controllers\\';
+        $m2  = 'App\\Http\\Controllers\\' . $m2;
 
         $routes   = [];
         $routes[] = "Route::get('" . str_replace(DIRECTORY_SEPARATOR, '/', $m2Path) . "/layout', '{$m2}RenderController@index');";
